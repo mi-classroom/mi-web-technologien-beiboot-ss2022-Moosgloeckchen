@@ -11,5 +11,9 @@
     "@babel/core": "^7.17.10",
     "eslint": "^8.14.0",
     "vite": "^2.9.5"
+  },
+  "dependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
   }
 }
