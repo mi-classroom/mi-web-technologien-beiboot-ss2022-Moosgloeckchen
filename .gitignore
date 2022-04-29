@@ -1,3 +1,6 @@
+# Exclude data folder
+data/*
+
 # Logs
 logs
 *.log
