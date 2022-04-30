@@ -1,7 +1,10 @@
 import React from 'react';
+import { mergeSort } from '../../helpers/sorting.helper';
+import DetailsView from '../detailedView/details.view';
 import Data from "./../../../../data/cda-paintings-2022-04-22.de.json";
+import './overview.css';
 
-const Overview = () => {
+const Overview = (setisDetails) => {
 
     const masterpieces = Data.items;
 
@@ -9,24 +12,22 @@ const Overview = () => {
         return painting.isBestOf;
     })
 
-    console.log('masterpieces', masterpieces)
-    console.log('bestOf', bestOf)
-    console.log('bestOf[0].titles.title', bestOf[0].titles[0].title)
+    mergeSort(bestOf);
 
+    const getPaintingsPreview = bestOf.map((painting, i) => (
+        <div key={i} className='Preview-painting'>
+            <button onClick={() => setisDetails(true)}>
+                <img src={painting.images.overall.images[0].sizes.medium.src} height='200px'/>
+            </button>
+        </div>
+    ))
 
     return (
         <div>
-            <h1>This is an overview over Lukas Cranach masterpieces</h1>
-
-            {bestOf.map((painting, i) => (
-
-                <li key={i}>
-
-                    <span> {i} Titel {painting.titles[0].title}</span>
-
-                </li>
-
-            ))}
+            <h1>This is an overview over Lukas Cranach's masterpieces</h1>
+            <div className='Preview'>
+                {getPaintingsPreview}
+            </div>
         </div>
     )
 }

@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './App';
 
 import './assets/styles/index.css';
-import Overview from './components/overview/overview';
 
 ReactDOM.render(
     <div>
-        <Overview />
+        <App />
     </div>,
     document.getElementById('root'),
 );
