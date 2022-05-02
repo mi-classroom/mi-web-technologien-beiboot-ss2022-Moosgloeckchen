@@ -1,6 +1,6 @@
 import React from 'react';
+import { saveInLocalStorage } from '../../helpers/localStorage.helper';
 import { mergeSort } from '../../helpers/sorting.helper';
-import DetailsView from '../detailedView/details.view';
 import Data from "./../../../../data/cda-paintings-2022-04-22.de.json";
 import './overview.css';
 
@@ -14,9 +14,14 @@ const Overview = ({setisDetails}) => {
 
     mergeSort(bestOf);
 
+    const handleClick = (paintingNumber) => {
+        setisDetails(true);
+        saveInLocalStorage('paintingNumber', paintingNumber)
+    }
+
     const getPaintingsPreview = bestOf.map((painting, i) => (
         <div key={i} className='Preview-painting'>
-            <button onClick={() => setisDetails(true)}>
+            <button onClick={() => handleClick(painting.sortingNumber)}>
                 <img src={painting.images.overall.images[0].sizes.medium.src} height='200px'/>
             </button>
         </div>

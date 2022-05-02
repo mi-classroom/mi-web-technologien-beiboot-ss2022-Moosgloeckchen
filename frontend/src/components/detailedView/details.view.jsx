@@ -1,6 +1,9 @@
 import React from 'react';
+import { getFromLocalStorage } from '../../helpers/localStorage.helper';
 
-const DetailsView = (paintings) => {
+const DetailsView = () => {
+
+    const paintingNumber = getFromLocalStorage('paintingNumber');
 
     return (
         <div>
