@@ -13,7 +13,7 @@ const App = () => {
         <div>
             {!isDetails 
             ? 
-                <Overview setisDetails />
+                <Overview setisDetails={setisDetails} />
             :
                 <DetailsView paintings />
             }

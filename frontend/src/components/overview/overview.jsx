@@ -4,7 +4,7 @@ import DetailsView from '../detailedView/details.view';
 import Data from "./../../../../data/cda-paintings-2022-04-22.de.json";
 import './overview.css';
 
-const Overview = (setisDetails) => {
+const Overview = ({setisDetails}) => {
 
     const masterpieces = Data.items;
 
