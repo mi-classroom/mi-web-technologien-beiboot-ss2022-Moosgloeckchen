@@ -2,8 +2,8 @@
 
 * Status: [proposed | rejected | accepted | deprecated | … | superseded by [ADR-0005](0005-example.md)] <!-- optional -->
 * Workload: [in hours] <!-- optional -->
-* Decider: [Linnéa Doberstein](https://github.com/Moosgloeckchen)
-* Issue: [?](https://github.com/mi-classroom/mi-web-technologien-beiboot-ss2022-Moosgloeckchen/issues/?) <!-- optional -->
+* Deciders: [list everyone involved in the decision] <!-- optional -->
+* Issue: []() <!-- optional -->
 * Date: [YYYY-MM-DD when the decision was last updated] <!-- optional -->
 
 Technical Story: [description | ticket/issue URL] <!-- optional -->
