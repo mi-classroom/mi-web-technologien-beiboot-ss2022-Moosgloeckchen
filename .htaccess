@@ -1,0 +1,5 @@
+#Protect Directory
+AuthName "Insert Password"
+AuthType Basic
+AuthUserFile /auth/.htpasswd
+Require valid-user
