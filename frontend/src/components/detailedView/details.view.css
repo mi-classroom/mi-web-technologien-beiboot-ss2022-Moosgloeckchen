@@ -1,0 +1,12 @@
+.DetailedView {
+    display: flex;
+    flex-direction: column;
+}
+
+.DetailView-image {
+    width: 25rem;
+}
+
+.Detaileview-backButton {
+    width: 5rem;
+}

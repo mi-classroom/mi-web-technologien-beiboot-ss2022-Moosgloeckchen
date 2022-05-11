@@ -1,0 +1,18 @@
+@import './scss/abstracts/fonts.scss';
+@import './scss/abstracts/icons.scss';
+@import './scss/abstracts/variables.scss';
+
+html {
+    font-family: 'IBMPlexSans', sans-serif;
+}
+
+
+button:hover {
+    cursor: pointer;
+}
+
+/* suitcss util classes */
+
+.u-marginBs {
+    margin-bottom: $s;
+}
