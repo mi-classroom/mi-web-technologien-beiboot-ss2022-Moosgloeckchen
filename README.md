@@ -8,7 +8,5 @@ Als organisatorischen Rahmen für das Projekt nutzen wir GitHub Classroom. Inhal
 Author: __Linnéa Doberstein__  
 Reviewer: ?
 
-## Domain
-[https://mi-classroom.github.io/mi-web-technologien-beiboot-ss2022-Moosgloeckchen/](https://mi-classroom.github.io/mi-web-technologien-beiboot-ss2022-Moosgloeckchen/)
 ## Decision Records
 Interested in decisions made along the way? Have a look at the [Architectural Decision Records (ADR's)](./decisions/README.md).

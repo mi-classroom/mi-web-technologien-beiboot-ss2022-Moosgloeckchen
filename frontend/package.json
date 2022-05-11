@@ -2,19 +2,14 @@
   "name": "frontend",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
-  "homepage": "https://mi-classroom.github.io/mi-web-technologien-beiboot-ss2022-Moosgloeckchen/frontend",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "preview": "vite preview"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",
     "eslint": "^8.14.0",
-    "gh-pages": "^3.2.3",
     "vite": "^2.9.5"
   },
   "dependencies": {
