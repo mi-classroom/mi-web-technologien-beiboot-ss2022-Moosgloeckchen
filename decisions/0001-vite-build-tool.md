@@ -18,7 +18,7 @@ To automate the creation of executable applications from code this project is in
 
 ## Decision Outcome
 
-Chosen option: "Vite", because for the current requirements, Webpack and Vite are interchangable. With a view on a future project size the decision was made to use Vite.
+Chosen option: "Vite", because for the current requirements, Webpack and Vite are interchangable. With a view on a future project size the decision was made to use Vite. Also using Vite brings new experiences, because it is new to the developer.
 
 ### Positive Consequences <!-- optional -->
 

@@ -1,41 +1,22 @@
-# [short title of solved problem and solution]
+# React as Frontend framework
 
 * Status: accepted 
-* Workload: [in hours] <!-- optional -->
-* Deciders:v [Linnéa Doberstein](https://github.com/Moosgloeckchen)
-* Issue:  [?](https://github.com/mi-classroom/mi-web-technologien-beiboot-ss2022-Moosgloeckchen/issues/?)
+* Workload: 30min <!-- optional -->
+* Deciders: [Linnéa Doberstein](https://github.com/Moosgloeckchen)
+* Issue:  [2](https://github.com/mi-classroom/mi-web-technologien-beiboot-ss2022-Moosgloeckchen/issues/2)
 * Date: 10.05.2022 <!-- optional -->
 
 ## Context and Problem Statement
-
 For the implementation of the frontend, the selection of plain js or a framework is required.
-
-
-## Decision Drivers <!-- optional -->
-
-* [driver 1, e.g., a force, facing concern, …]
-* [driver 2, e.g., a force, facing concern, …]
-* … <!-- numbers of drivers can vary -->
 
 ## Considered Options
 
 * Vanilla JS
 * Framework
-* … <!-- numbers of options can vary -->
 
 ## Decision Outcome
 
-The development of the frontend components is done with the React.js framework. The decision is primarily based on the time frame of the project and the different level of knowledge of the team.
-
-### Positive Consequences <!-- optional -->
-
-* [e.g., improvement of quality attribute satisfaction, follow-up decisions required, …]
-* …
-
-### Negative Consequences <!-- optional -->
-
-* [e.g., compromising quality attribute, follow-up decisions required, …]
-* …
+The development of the frontend components is done with the React.js framework. The decision is primarily based on the level of knowledge of the developer.
 
 ## Pros and Cons of the Options <!-- optional -->
 
@@ -53,8 +34,6 @@ The development of the frontend components is done with the React.js framework. 
 * Implementing a framework at this time might be too restrictive
 * If problems occur, the search for a solution may take longer, since the peculiarities of the framework must be taken into account or may be the cause.
 * Possible problems occurring during upgrades of a framework 
-
-* … <!-- numbers of pros and cons can vary -->
 
 ### Vanilla JS
 #### Pro
@@ -76,17 +55,23 @@ The development of the frontend components is done with the React.js framework. 
 
 ## Decision Outcome
 
-Reactjs was chosen. The frameworks under consideration are technically very similar. Therefore, personal preferences were taken into account in the decision-making process. These include the fact that the developer already have experience with Reactjs, which significantly shortens the learning curve and allows the project to be set up quickly.
-### [option 3]
+React.js was chosen. The frameworks under consideration are technically very similar. Therefore, personal preferences were taken into account in the decision-making process. These include the fact that the developer already has experience with Reactjs, which significantly shortens the learning curve and allows the project to be set up quickly.
+### React.js
 
-[example | description | pointer to more information | …] <!-- optional -->
+* Good, because the developer has some experience with React.js
+* Good, because it uses JSX
 
-* Good, because [argument a]
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
+### Vue.js
+
+* Bad, because the developer has no experience
+
+### Angular
+
+* Bad, because the develop has no experience
+* is a bit more complex than the other two
 
 ## Links <!-- optional -->
 
-* [Link type] [Link to ADR] <!-- example: Refined by [ADR-0005](0005-example.md) -->
-* … <!-- numbers of links can vary -->
+* [React.js](https://reactjs.org/)
+* [Vue.js](https://vuejs.org/)
+* [Angular](https://angular.io/)
