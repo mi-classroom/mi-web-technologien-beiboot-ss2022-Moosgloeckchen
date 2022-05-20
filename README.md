@@ -11,6 +11,21 @@ Reviewer: [Max Hammer](https://github.com/MaxHam)
 ## Domain
 [https://moosgloeckchen.github.io/](https://moosgloeckchen.github.io/)
 
+## Quick start
+
+To start the Project Docker Compose must be installed on the device. After that, follow these steps:
+
+1. clone project
+2. copy prepared Cranach images into a new folder `data` on the highest level:
+    ```
+    auth/
+    data/
+    deicsions/
+    frontend/
+    ```
+3. create and start the service via `docker-compose up -d --build` from inside the folder `frontend`.
+4. finally call [localhost:3000](http://localhost:3000)
+
 ## Decision Records
 Interested in decisions made along the way? Have a look at the [Architectural Decision Records (ADR's)](./docs/decisions/README.md).
 
