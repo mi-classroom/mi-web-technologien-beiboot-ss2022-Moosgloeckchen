@@ -1,17 +1,16 @@
 FROM node:14.15.1
 
-LABEL version="1.0"
-LABEL description="Cranach 3D Viewer"
+ARG REACT_APP_ENV
+ENV REACT_APP_ENV=${REACT_APP_ENV}
 
-WORKDIR /frontend
+WORKDIR /usr/src/app
 
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+ENV PATH /app/node_modules/.bin:$PATH
 
-ADD . .
-
+COPY package.json ./
+RUN npm install react-scripts -g
 RUN npm install
 
-ENTRYPOINT ["/entrypoint.sh"]
-
-CMD ["npm", "run", "dev"]
+COPY . .
+EXPOSE 9000
+CMD [ "npm", "run", "dev" ]
