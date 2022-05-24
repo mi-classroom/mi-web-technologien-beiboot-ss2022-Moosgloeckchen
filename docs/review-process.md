@@ -13,8 +13,8 @@ The [Gitmoji](https://gitmoji.dev/) declares the type of commit, followed by a s
     * on [https://github.com/mi-classroom/mi-web-technologien-beiboot-ss2022-Moosgloeckchen/pulls](https://github.com/mi-classroom/mi-web-technologien-beiboot-ss2022-Moosgloeckchen/pulls)
     * choose: _Compare & pull request_ 
         * Add title: _Issue Number - short description_ e.g.: `Issue 2 - Review Process`
-        * Use [template](https://github.com/mi-classroom/mi-web-technologien-beiboot-ss2022-Moosgloeckchen/blob/feature/ms-2/review-process/.github/pull_request_template.md) (Template from: [EmbeddedArtistry](https://embeddedartistry.com/blog/2017/08/04/a-github-pull-request-template-for-your-projects/))
-        * Add Reviewers: ?
+        * Use [template](https://github.com/mi-classroom/mi-web-technologien-beiboot-ss2022-Moosgloeckchen/blob/feature/ms-2/review-process/.github/pull_request_template.md) (inspired by: [EmbeddedArtistry](https://embeddedartistry.com/blog/2017/08/04/a-github-pull-request-template-for-your-projects/))
+        * Add Reviewer: [Max Hammer](https://github.com/MaxHam)
         * _Create pull request_
 2. Move issue to review column
 3. Reviewer adds comments/ suggestions/ declines or approves the PR
