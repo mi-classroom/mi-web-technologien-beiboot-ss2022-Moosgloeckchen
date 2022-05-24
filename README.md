@@ -15,4 +15,4 @@ Reviewer: ?
 Interested in decisions made along the way? Have a look at the [Architectural Decision Records (ADR's)](./docs/decisions/README.md).
 
 ## Prorcess documentations
-* [Review Process](./docs/review-process.md)
+* [Github Workflow](./docs/review-process.md)
