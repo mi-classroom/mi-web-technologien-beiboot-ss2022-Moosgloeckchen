@@ -15,19 +15,21 @@ Reviewer: [Max Hammer](https://github.com/MaxHam)
 
 To start the Project Docker Compose must be installed on the device. After that, follow these steps:
 
-1. clone project
-2. copy prepared Cranach images into a new folder `data` on the highest level:
+1. Clone project
+2. Copy prepared Cranach images into a new folder `data` inside the `frontend` folder:
     ```
     auth/
-    data/
-    deicsions/
+    docs/
     frontend/
+        data
+        src
     ```
-3. create and start the service via `docker-compose up -d --build` from inside the folder `frontend`.
-4. finally call [localhost:3000](http://localhost:3000)
+3. Create and start the service via `docker-compose up -d --build` from inside the folder `frontend`.
+4. Finally call [localhost:3000](http://localhost:3000)
+5. To shut down the container, use `docker-compose down --remove-orphans`.
 
 ## Decision Records
 Interested in decisions made along the way? Have a look at the [Architectural Decision Records (ADR's)](./docs/decisions/README.md).
 
-## Prorcess documentations
+## Process documentations
 * [Github Workflow](./docs/review-process.md)
