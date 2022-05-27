@@ -4,7 +4,7 @@
 * Workload: 30min <!-- optional -->
 * Deciders: [Linnéa Doberstein](https://github.com/Moosgloeckchen)
 * Issue:  [2](https://github.com/mi-classroom/mi-web-technologien-beiboot-ss2022-Moosgloeckchen/issues/2)
-* Date: 10.05.2022 <!-- optional -->
+* Date: 2022-05-10
 
 ## Context and Problem Statement
 For the implementation of the frontend, the selection of plain js or a framework is required.
