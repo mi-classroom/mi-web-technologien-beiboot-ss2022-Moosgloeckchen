@@ -13,13 +13,22 @@ const Overview = ({bestOf, setisDetails}) => {
         saveInLocalStorage('paintingNumber', paintingNumber)
     }
 
-    const getPaintingsPreview = paintings.map((painting, i) => (
-        <div key={i} className='Preview-painting'>
-            <button onClick={() => handleClick(painting.sortingNumber)}>
-                <img src={painting.images.overall.images[0].sizes.medium.src} height='200px'/>
-            </button>
-        </div>
-    ))
+    const getPaintingsPreview = paintings.map((painting, i) =>  {
+        const maxDimensions = painting.images.overall.infos.maxDimensions;
+        const fixWidth = 70;
+        const paintingWidth = maxDimensions.width;
+        const paintingHeight = maxDimensions.height;
+        const ratio = (paintingHeight / paintingWidth)
+        const fixHeight = ratio * fixWidth;
+
+        return (
+            <div key={i} className='Preview-painting'>
+                <button onClick={() => handleClick(painting.sortingNumber)}>
+                    <img src={painting.images.overall.images[0].sizes.medium.src} height={fixHeight} width="70"/>
+                </button>
+            </div>
+        )
+    })
 
     return (
         <div>

@@ -26,17 +26,16 @@ const App = () => {
     }
   }, [])
 
-
-    return (
-        <div>
-            {!isDetails 
-            ? 
-                <Overview bestOf={bestOf} setisDetails={setisDetails} />
-            :
-                <DetailsView bestOf={bestOf} setisDetails={setisDetails}/>
-            }
-        </div>
-    )
+  return (
+      <div>
+          {!isDetails 
+          ? 
+              <Overview bestOf={bestOf} setisDetails={setisDetails} />
+          :
+              <DetailsView bestOf={bestOf} setisDetails={setisDetails}/>
+          }
+      </div>
+  )
 }
 
 export default App;
