@@ -16,6 +16,7 @@ const DetailsView = ({bestOf, setisDetails}) => {
             <button className='Detaileview-backButton u-marginBs' onClick={() => setisDetails(false)}>Zurück</button>
             <img className='DetailView-image u-marginBs' src={painting.images.overall.images[0].sizes.medium.src}/>
             <span className='u-marginBs'>Titel: {painting.metadata.title}</span>
+            <span className='u-marginBs'>Künstler: {painting.involvedPersons[0].name}</span>
             <span className='u-marginBs'>Datum: {painting.images.overall.images[0].metadata.date} </span>
             <span>Besitzer: {painting.repository}</span>
         </div>
