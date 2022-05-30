@@ -1,5 +1,5 @@
 # Exclude data folder
-data/*
+frontend/data/*
 
 # Logs
 logs

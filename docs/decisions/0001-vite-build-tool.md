@@ -4,7 +4,7 @@
 * Workload: 1h
 * Decider: [Linnéa Doberstein](https://github.com/Moosgloeckchen)
 * Issue: [3](https://github.com/mi-classroom/mi-web-technologien-beiboot-ss2022-Moosgloeckchen/issues/3)
-* Date: 09.05.22
+* Date: 2022-05-09
 
 ## Context and Problem Statement
 
