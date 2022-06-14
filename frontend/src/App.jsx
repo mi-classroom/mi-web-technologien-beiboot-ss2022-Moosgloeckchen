@@ -99,10 +99,6 @@ function Controls() {
 
 function Frames({ paintings, group}) {
   const getPaintings = group.map((painting, i) =>  {
-    const maxDimensions = painting.images.overall.infos.maxDimensions;
-    const paintingWidth = maxDimensions.width;
-    const paintingHeight = maxDimensions.height;
-    const ratio = (paintingHeight / paintingWidth)
     const positionZ = painting.sortingInfo.year-1525;
     const positionX = i * 2
 
@@ -112,7 +108,18 @@ function Frames({ paintings, group}) {
     };
     
     return (
-      <Frame paintings={paintings} key={i} index={i} url={useProxy(painting.images.overall.images[0].sizes.medium.src)} year={painting.sortingInfo.year} position={[positionX, 0, positionZ]} rotation= {[0, 0, 0]} ratio={ratio}/>
+      <Frame 
+        key={i} index={i}
+        url={useProxy(painting.images.overall.images[0].sizes.medium.src)}
+        year={painting.sortingInfo.year}
+        position={[positionX, 0, positionZ]}
+        rotation= {[0, 0, 0]}
+        maxDimensions={painting.images.overall.infos.maxDimensions}
+        title={painting.metadata.title}
+        artist={painting.involvedPersons[0].name}
+        date={painting.images.overall.images[0].metadata.date}
+        owner={painting.repository}
+      />
     )
   })
 
@@ -126,14 +133,21 @@ function Frames({ paintings, group}) {
 function Frame({ url, c = new THREE.Color(), ...props }) {
   const image = useRef()
   const frame = useRef()
-  const name = getUuid(url)
+
+  const descriptionString = 'Titel: ' + props.title + '\n' + 'Künstler: ' + props.artist + '\n' + 'Datum: '+ props.date + '\n' + 'Besitzer: ' + props.owner;
+  
+  const maxDimensions = props.maxDimensions;
+  const paintingWidth = maxDimensions.width;
+  const paintingHeight = maxDimensions.height;
+  const ratio = (paintingHeight / paintingWidth )
+  const fixWidth = 1;
 
   return (
     <group>
       <group {...props}>
         <mesh
-          name={name}
-          scale={[1, props.ratio, 0.05]}
+          name={props.title}
+          scale={[1, ratio, 0.05]}
           position={[0, 1, 0]}>
           <boxGeometry />
           <meshStandardMaterial color="#151515" metalness={0.5} roughness={0.5} envMapIntensity={2} />
@@ -143,8 +157,8 @@ function Frame({ url, c = new THREE.Color(), ...props }) {
           </mesh>
           <Image raycast={() => null} ref={image} position={[0, 0, 0.7]} url={url} />
         </mesh>
-        <Text maxWidth={0.1} anchorX="left" anchorY="top" position={[0.55, props.ratio, 0]} fontSize={0.025}>
-          {name.split('-').join(' ')}
+        <Text maxWidth={0.8} anchorX="left" anchorY="top" position={[0.55, 1, 0]} fontSize={0.025}>
+          {descriptionString}
         </Text>
       </group>
     </group>
