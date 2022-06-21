@@ -35,7 +35,6 @@ const App = () => {
   const paintings = bestOf ? bestOf : [];
 
   mergeSort(paintings);
-
   const groupPaintings = (paintings) =>
     paintings.reduce((groups, painting) => {
       const group = groups[painting.sortingInfo.year] || [];
@@ -48,7 +47,6 @@ const App = () => {
     <Canvas shadows camera={{ position: [20, 15, 50], fov: (42, 0.05) }}>
       <color attach="background" args={['#a2b9e7']} />
       <directionalLight position={[0, 8, 5]} castShadow intensity={1} shadow-camera-far={70} />
-      <Suspense fallback={null}>
         <group position={[0, -0.9, -3]}>
           {/* <Plane color="hotpink" rotation-x={-Math.PI / 2} position-z={2} scale={[4, 40, 0.2]} /> */}
           {Object.entries(groupPaintings(paintings)).map(([year, group, i]) => (
@@ -72,7 +70,6 @@ const App = () => {
         </group>
         <Controls />
         <Zoom />
-      </Suspense>
     </Canvas>
   )
 }
@@ -106,20 +103,23 @@ function Frames({ paintings, group}) {
       const split = text.split('imageserver-2022/');
       return 'https://lucascranach.org/data-proxy/image.php?subpath=/' + split[1];
     };
-    
+
     return (
-      <Frame 
-        key={i} index={i}
-        url={useProxy(painting.images.overall.images[0].sizes.medium.src)}
-        year={painting.sortingInfo.year}
-        position={[positionX, 0, positionZ]}
-        rotation= {[0, 0, 0]}
-        maxDimensions={painting.images.overall.infos.maxDimensions}
-        title={painting.metadata.title}
-        artist={painting.involvedPersons[0].name}
-        date={painting.images.overall.images[0].metadata.date}
-        owner={painting.repository}
-      />
+      <group>
+        <Year position={[-2, 0, positionZ]} year={painting.sortingInfo.year} positionZ={positionZ}  />
+        <Frame 
+          key={i} index={i}
+          url={useProxy(painting.images.overall.images[0].sizes.medium.src)}
+          year={painting.sortingInfo.year}
+          position={[positionX, 0, positionZ]}
+          rotation= {[0, 0, 0]}
+          maxDimensions={painting.images.overall.infos.maxDimensions}
+          title={painting.metadata.title}
+          artist={painting.involvedPersons[0].name}
+          date={painting.images.overall.images[0].metadata.date}
+          owner={painting.repository}
+        />
+      </group>
     )
   })
 
@@ -130,6 +130,27 @@ function Frames({ paintings, group}) {
   )
 }
 
+function Year(props) {
+  const mesh = useRef()
+  return (
+    <group>
+      <mesh
+        {...props}
+        ref={mesh}
+        scale={1}>
+        <boxGeometry args={[1, 1, 0.3]} />
+        <meshStandardMaterial color={'orange'} />
+      </mesh>
+      <Text maxWidth={1.8} anchorX="center" anchorY="middle" position={[-2, 0.52, props.positionZ]} fontSize={0.2} rotation={[4.7, 0, 0]}>
+        {props.year}
+      </Text>
+      <Text maxWidth={1.8} anchorX="center" anchorY="middle" position={[-2, 0.3, props.positionZ + 0.2]} fontSize={0.2} rotation={[0, 0, 0]}>
+        {props.year}
+      </Text>
+  </group>
+  )
+}
+
 function Frame({ url, c = new THREE.Color(), ...props }) {
   const image = useRef()
   const frame = useRef()
@@ -137,9 +158,9 @@ function Frame({ url, c = new THREE.Color(), ...props }) {
   const descriptionString = 'Titel: ' + props.title + '\n' + 'Künstler: ' + props.artist + '\n' + 'Datum: '+ props.date + '\n' + 'Besitzer: ' + props.owner;
   
   const maxDimensions = props.maxDimensions;
-  const paintingWidth = maxDimensions.width;
-  const paintingHeight = maxDimensions.height;
-  const ratio = (paintingHeight / paintingWidth )
+  const paintingWidth = (maxDimensions.width / 1000) / 10;
+  const paintingHeight = (maxDimensions.height / 1000) / 10;
+  const ratio = (paintingWidth / paintingHeight)
   const fixWidth = 1;
 
   return (
@@ -147,7 +168,7 @@ function Frame({ url, c = new THREE.Color(), ...props }) {
       <group {...props}>
         <mesh
           name={props.title}
-          scale={[1, ratio, 0.05]}
+          scale={[paintingWidth, paintingHeight, 0.2]} 
           position={[0, 1, 0]}>
           <boxGeometry />
           <meshStandardMaterial color="#151515" metalness={0.5} roughness={0.5} envMapIntensity={2} />
