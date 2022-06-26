@@ -6,6 +6,7 @@ import { Controler } from './components/controler/controler';
 import { Physics } from '@react-three/cannon';
 import { Frames } from './components/frames/frames';
 import { Floor } from './components/floor/floor';
+import { PointerLockControls } from '@react-three/drei';
 
 const App = () => {
   const masterpieces = Data.items;
@@ -44,6 +45,7 @@ const App = () => {
     * adds lighting for painting display
     * adds physics to place physics related ojects
     * adds frames, floor and controler
+    * adds PinterLockControls for camera rotation
     */
   return (
     <Canvas shadows camera={{ fov: (65) }}>
@@ -58,6 +60,7 @@ const App = () => {
         </group>
         <Controler />
       </Physics>
+      <PointerLockControls />
     </Canvas>
   )
 }
