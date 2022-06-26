@@ -22,7 +22,7 @@ const keyboardKeys = {
  * access camera
  * useFrame -> calls you back every frame (useful for updating controls)
  * use the api to interact with the object (apply positions, rotations, velocities,...)
- * calculates direction (Vectors) and moves the camera and therefore the viewport to the identified position
+ * calculates direction and moves the camera and therefore the viewport to the identified position
  */ 
 export const Controler = () => {
   const [ref, api] = useSphere(() => ({
@@ -37,16 +37,18 @@ export const Controler = () => {
     ref.current.getWorldPosition(camera.position);
 
     const vectorX = new THREE.Vector3()
-      .set(Number(moveRight) - Number(moveLeft), 0, 0)
-      .normalize()
-      .multiplyScalar(5);
+      .set(Number(moveLeft) - Number(moveRight), 0, 0)
 
     const vectorZ = new THREE.Vector3()
       .set(0, 0, Number(moveBackward) - Number(moveForward))
-      .normalize()
-      .multiplyScalar(5);
 
-    api.velocity.set(vectorX.x, 0, vectorZ.z);
+    const direction = new THREE.Vector3()
+      .subVectors(vectorZ, vectorX)
+      .normalize()
+      .multiplyScalar(5)
+      .applyEuler(camera.rotation);
+
+    api.velocity.set(direction.x, 0, direction.z);
   });
 
   return (
