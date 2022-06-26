@@ -1,3 +1,7 @@
+/**
+ * sort paintings by sortingNumber
+ */
+
 export const mergeSort = (bestOf) => {
     if (bestOf?.length < 2) {
         return;
