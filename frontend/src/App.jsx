@@ -54,7 +54,7 @@ const App = () => {
       <Physics>
         <group position={[0, -0.9, -3]}>
           {Object.entries(groupPaintings(paintings)).map(([year, group, i]) => (
-            <Frames key={i} paintings={paintings} group={group}/>
+            <Frames key={year+i} paintings={paintings} group={group}/>
           ))}
           <Floor />
         </group>
