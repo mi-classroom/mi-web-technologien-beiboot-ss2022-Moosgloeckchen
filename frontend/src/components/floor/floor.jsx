@@ -10,7 +10,7 @@ export const Floor = () => {
 
   return (
     <mesh ref={ref} receiveShadow>
-      <planeGeometry args={[100, 100]} />
+      <planeGeometry args={[300, 300]} />
       <MeshReflectorMaterial
         blur={[300, 100]}
         resolution={2048}

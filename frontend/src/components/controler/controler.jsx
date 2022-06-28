@@ -27,7 +27,7 @@ const keyboardKeys = {
 export const Controler = () => {
   const [ref, api] = useSphere(() => ({
     mass: 1,
-    position: [0, 1, 40]
+    position: [0, 1, 62]
   }));
 
   const { moveForward, moveBackward, moveLeft, moveRight } = useControls(keyboardKeys);

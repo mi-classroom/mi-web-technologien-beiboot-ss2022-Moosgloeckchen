@@ -4,7 +4,7 @@ import { Year } from "../year/year";
 
 export const Frames = ({ group }) => {
   const getPaintings = group.map((painting, i) => {
-    const positionZ = painting.sortingInfo.year - 1525;
+    const positionZ = (painting.sortingInfo.year - 1525) * 1.5;
     const positionX = i * 2.1;
 
     const useProxy = (text) => {
