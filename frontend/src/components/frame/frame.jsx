@@ -4,16 +4,15 @@ import * as THREE from 'three'
 
 /**
  * takes dimensions
- * creates painting with description text 
+ * creates box for image (backside of an image is transparent)
+ * creates image with description text 
  */
-export const Frame = ({ url, height, ...props }) => {
+export const Frame = ({ url, maxDimensions, title, artist, date, owner, ratio, ...props }) => {
   const image = useRef()
   const frame = useRef()
 
-  const descriptionString = 'Titel: ' + props.title + '\n' + 'Künstler: ' + props.artist + '\n' + 'Datum: ' + props.date + '\n' + 'Besitzer: ' + props.owner;
-  const maxDimensions = props.maxDimensions;
+  const descriptionString = 'Titel: ' + title + '\n' + 'Künstler: ' + artist + '\n' + 'Datum: ' + date + '\n' + 'Besitzer: ' + owner;
   const paintingHeight = (maxDimensions.height / 500) / 10;
-  const ratio = props.ratio;
   const width = paintingHeight * ratio;
   
   return (

@@ -30,15 +30,12 @@ export const Frames = ({ group }) => {
         <Frame
           key={i} index={i}
           url={useProxy(painting.images.overall.images[0].sizes.medium?.src)}
-          year={painting.sortingInfo.year}
           position={[positionX, 0, positionZ]}
-          rotation={[0, 0, 0]}
           maxDimensions={painting.images.overall.infos.maxDimensions}
           title={painting.metadata.title}
           artist={painting.involvedPersons[0].name}
           date={painting.images.overall.images[0].metadata.date}
           owner={painting.repository}
-          width={painting.images.overall.images[0].sizes.medium?.dimensions.width}
           ratio={ratio}
         />
       </group>
