@@ -1,42 +1,68 @@
 import React, { useEffect, useState } from 'react';
-import Overview from './components/overview/overview';
-
 import Data from "./../data/cda-paintings-2022-04-22.de.json";
+import { Canvas } from '@react-three/fiber';
 import { mergeSort } from './helpers/sorting.helper';
-import DetailsView from './components/detailedView/details.view';
+import { Controler } from './components/controler/controler';
+import { Physics } from '@react-three/cannon';
+import { Frames } from './components/frames/frames';
+import { Floor } from './components/floor/floor';
+import { PointerLockControls } from '@react-three/drei';
 
 const App = () => {
+  const masterpieces = Data.items;
+  const [bestOf, setpaintingsBestOf] = useState(null)
 
-    const [isDetails, setisDetails] = useState(false)
-    const [bestOf, setpaintingsBestOf] = useState(null)
-
-    const masterpieces = Data.items;
-
-    useEffect(() => {
-      async function getData() {
-        const piecesBestOf = masterpieces.filter((painting) => {
-            return painting.isBestOf;
-        })
-        setpaintingsBestOf(piecesBestOf);
-      }
-
-      getData();
-  
-    return () => {
+  /**
+   * gets the data and filters for masterpieces
+   */
+  useEffect(() => {
+    async function getData() {
+      const piecesBestOf = masterpieces.filter((painting) => {
+        return painting.isBestOf;
+      })
+      setpaintingsBestOf(piecesBestOf);
     }
+    getData();
   }, [])
 
+  const paintings = bestOf ? bestOf : [];
+  mergeSort(paintings);
 
-    return (
-        <div>
-            {!isDetails 
-            ? 
-                <Overview bestOf={bestOf} setisDetails={setisDetails} />
-            :
-                <DetailsView bestOf={bestOf} setisDetails={setisDetails}/>
-            }
-        </div>
-    )
+  /**
+   *  group paintings for joint display  
+   */
+  const groupPaintings = (paintings) =>
+    paintings.reduce((groups, painting) => {
+      const group = groups[painting.sortingInfo.year] || [];
+      group.push(painting);
+      groups[painting.sortingInfo.year] = group;
+      return groups;
+    }, {});
+
+  /**
+    * creates Canvas to define three.js (fiber) scene
+    * colors background
+    * adds lighting for painting display
+    * adds physics to place physics related ojects
+    * adds frames, floor and controler
+    * adds PinterLockControls for camera rotation
+    */
+  return (
+    <Canvas shadows camera={{ fov: (65) }}>
+      <color attach="background" args={['#a2b9e7']} />
+      <directionalLight position={[0, 8, 5]} castShadow intensity={1} shadow-camera-far={70} />
+      <Physics>
+        <group position={[0, -0.9, -3]}>
+          {Object.entries(groupPaintings(paintings)).map(([year, group, i]) => (
+            <Frames key={year+i} paintings={paintings} group={group}/>
+          ))}
+          <Floor />
+        </group>
+        <Controler />
+      </Physics>
+      <PointerLockControls />
+    </Canvas>
+  )
 }
 
 export default App;
