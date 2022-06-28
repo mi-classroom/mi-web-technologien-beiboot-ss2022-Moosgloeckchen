@@ -2,6 +2,13 @@ import React from "react";
 import { Frame } from "../frame/frame";
 import { Year } from "../year/year";
 
+/**
+ * takes groupes
+ * maps grouped paintings
+ * uses proxy
+ * measures the painting ratio
+ * adds years and paintings in the environment
+ */
 export const Frames = ({ group }) => {
   const getPaintings = group.map((painting, i) => {
     const positionZ = (painting.sortingInfo.year - 1525) * 1.5;

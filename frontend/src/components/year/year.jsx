@@ -1,6 +1,9 @@
 import React, { useRef } from "react";
 import { Text } from "@react-three/drei"
 
+/**
+ * creates box which displays the year -> timeline
+ */
 export const Year = (props) => {
   const mesh = useRef()
 

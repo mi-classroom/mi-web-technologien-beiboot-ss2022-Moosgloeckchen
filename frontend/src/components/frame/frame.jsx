@@ -2,7 +2,11 @@ import { Image, Text } from "@react-three/drei";
 import React, { useRef } from "react";
 import * as THREE from 'three'
 
-export const Frame = ({ url, c = new THREE.Color(),  height, ...props }) => {
+/**
+ * takes dimensions
+ * creates painting with description text 
+ */
+export const Frame = ({ url, height, ...props }) => {
   const image = useRef()
   const frame = useRef()
 
