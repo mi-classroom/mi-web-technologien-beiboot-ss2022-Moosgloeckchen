@@ -20,11 +20,6 @@ export const Frames = ({ group }) => {
           painting.images.overall.images[0].sizes.medium.dimensions.height
       : 1
 
-    const ratio = painting.images.overall.images[0].sizes.medium
-      ? painting.images.overall.images[0].sizes.medium.dimensions.width /
-          painting.images.overall.images[0].sizes.medium.dimensions.height
-      : 1
-
     return (
       <group>
         <Year position={[-2, 0, positionZ]} year={painting.sortingInfo.year} positionZ={positionZ} />
