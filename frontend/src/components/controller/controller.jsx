@@ -24,7 +24,7 @@ const keyboardKeys = {
  * use the api to interact with the object (apply positions, rotations, velocities,...)
  * calculates direction and moves the camera and therefore the viewport to the identified position
  */ 
-export const Controler = () => {
+export const Controller = () => {
   const [ref, api] = useSphere(() => ({
     mass: 1,
     position: [0, 1, 62]

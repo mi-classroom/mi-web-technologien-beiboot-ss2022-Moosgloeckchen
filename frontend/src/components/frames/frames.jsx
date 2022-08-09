@@ -1,4 +1,5 @@
 import React from "react";
+import { useProxy } from "../../hooks/useProxy";
 import { Frame } from "../frame/frame";
 import { Year } from "../year/year";
 
@@ -13,11 +14,6 @@ export const Frames = ({ group }) => {
   const getPaintings = group.map((painting, i) => {
     const positionZ = (painting.sortingInfo.year - 1525) * 1.5;
     const positionX = i * 2.1;
-
-    const useProxy = (text) => {
-      const split = text.split('imageserver-2022/');
-      return 'https://lucascranach.org/data-proxy/image.php?subpath=/' + split[1];
-    };
 
     const ratio = painting.images.overall.images[0].sizes.medium
       ? painting.images.overall.images[0].sizes.medium.dimensions.width /

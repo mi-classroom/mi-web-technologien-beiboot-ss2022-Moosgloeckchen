@@ -1,28 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import Data from "./../data/cda-paintings-2022-04-22.de.json";
 import { Canvas } from '@react-three/fiber';
 import { mergeSort } from './helpers/sorting.helper';
-import { Controler } from './components/controler/controler';
+import { Controller } from './components/controller/controller';
 import { Physics } from '@react-three/cannon';
 import { Frames } from './components/frames/frames';
 import { Floor } from './components/floor/floor';
 import { PointerLockControls } from '@react-three/drei';
+import { getData } from './helpers/utils.helper';
 
 const App = () => {
-  const masterpieces = Data.items;
   const [bestOf, setpaintingsBestOf] = useState(null)
-
-  /**
-   * gets the data and filters for masterpieces
-   */
+  
   useEffect(() => {
-    async function getData() {
-      const piecesBestOf = masterpieces.filter((painting) => {
-        return painting.isBestOf;
-      })
-      setpaintingsBestOf(piecesBestOf);
-    }
-    getData();
+    getData(setpaintingsBestOf);
   }, [])
 
   const paintings = bestOf ? bestOf : [];
@@ -44,7 +34,7 @@ const App = () => {
     * colors background
     * adds lighting for painting display
     * adds physics to place physics related ojects
-    * adds frames, floor and controler
+    * adds frames, floor and controller
     * adds PinterLockControls for camera rotation
     */
   return (
@@ -58,7 +48,7 @@ const App = () => {
           ))}
           <Floor />
         </group>
-        <Controler />
+        <Controller />
       </Physics>
       <PointerLockControls />
     </Canvas>
