@@ -18,13 +18,12 @@ export const Frame = ({
   owner,
   ratio,
   sortingNumber,
+  focusedPainting,
+  setFocusedPainting,
   id,
   inventoryNumber,
-  painting,
-  paintings,
   ...props
 }) => {
-
   const image = useRef()
   const frame = useRef()
   const text = useRef()

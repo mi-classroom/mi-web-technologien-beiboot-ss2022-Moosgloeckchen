@@ -11,6 +11,7 @@ import { UI } from './components/ui/ui';
 
 const App = () => {
   const [bestOf, setpaintingsBestOf] = useState(null)
+  const [focusedPainting, setFocusedPainting] = useState(null);
 
   useEffect(() => {
     getData(setpaintingsBestOf);
@@ -48,14 +49,16 @@ const App = () => {
           height: '100vh',
         }}
       >
-        <color attach='background' args={['darkgrey']} />
+        <color attach='background' args={['#a2b9e7']} />
         <directionalLight position={[0, 8, 5]} castShadow intensity={1} shadow-camera-far={70} />
         <Physics>
-          <group position={[0, -0.9, -13]}>
+          <group position={[0, -0.9, -3]}>
             {Object.entries(groupPaintings(paintings)).map(([year, group, i]) => (
               <Frames
                 key={year+i}
                 paintings={paintings}
+                focusedPainting={focusedPainting}
+                setFocusedPainting={setFocusedPainting}
                 group={group}
               />
             ))}
