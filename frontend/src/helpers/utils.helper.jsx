@@ -11,3 +11,12 @@ export async function getData(setpaintingsBestOf) {
   })
   setpaintingsBestOf(piecesBestOf);
 }
+
+/**
+ * takes a painting
+ * and returns the object of the first overall image 
+ */
+
+export const getOverallImage = (painting) => {
+  return painting.images.overall.images[0];
+}

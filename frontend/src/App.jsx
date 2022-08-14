@@ -7,10 +7,12 @@ import { Frames } from './components/frames/frames';
 import { Floor } from './components/floor/floor';
 import { PointerLockControls } from '@react-three/drei';
 import { getData } from './helpers/utils.helper';
+import { UI } from './components/ui/ui';
 
 const App = () => {
   const [bestOf, setpaintingsBestOf] = useState(null)
-  
+  const [focusedPainting, setFocusedPainting] = useState(null);
+
   useEffect(() => {
     getData(setpaintingsBestOf);
   }, [])
@@ -38,20 +40,35 @@ const App = () => {
     * adds PinterLockControls for camera rotation
     */
   return (
-    <Canvas shadows camera={{ fov: (65) }}>
-      <color attach="background" args={['#a2b9e7']} />
-      <directionalLight position={[0, 8, 5]} castShadow intensity={1} shadow-camera-far={70} />
-      <Physics>
-        <group position={[0, -0.9, -3]}>
-          {Object.entries(groupPaintings(paintings)).map(([year, group, i]) => (
-            <Frames key={year+i} paintings={paintings} group={group}/>
-          ))}
-          <Floor />
-        </group>
-        <Controller />
-      </Physics>
-      <PointerLockControls />
-    </Canvas>
+    <React.Fragment>
+      <UI />
+      <Canvas shadows
+        camera={{ fov: (65) }} 
+        style={{
+          width: '100vw',
+          height: '100vh',
+        }}
+      >
+        <color attach='background' args={['#a2b9e7']} />
+        <directionalLight position={[0, 8, 5]} castShadow intensity={1} shadow-camera-far={70} />
+        <Physics>
+          <group position={[0, -0.9, -3]}>
+            {Object.entries(groupPaintings(paintings)).map(([year, group, i]) => (
+              <Frames
+                key={year+i}
+                paintings={paintings}
+                focusedPainting={focusedPainting}
+                setFocusedPainting={setFocusedPainting}
+                group={group}
+              />
+            ))}
+            <Floor />
+          </group>
+          <Controller />
+        </Physics>
+        <PointerLockControls />
+      </Canvas>
+    </React.Fragment>
   )
 }
 
