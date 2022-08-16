@@ -1,5 +1,5 @@
 import React from "react";
-import { getOverallImage } from "../../helpers/utils.helper";
+import { getOverallImage, getRatio } from "../../helpers/utils.helper";
 import { useProxy } from "../../hooks/useProxy";
 import { Frame } from "../frame/frame";
 import { Year } from "../year/year";
@@ -13,17 +13,13 @@ import { Year } from "../year/year";
  */
 export const Frames = ({
   group,
-  focusedPainting,
-  setFocusedPainting
+  paintings
 }) => {
   const getPaintings = group.map((painting, i) => {
-    const positionZ = (painting.sortingInfo.year - 1525) * 1.5;
+    const positionZ = (painting.sortingInfo.year - 1525) * 1.8;
     const positionX = i * 2.1;
 
-    const ratio = getOverallImage(painting).sizes.medium
-      ? getOverallImage(painting).sizes.medium.dimensions.width /
-        getOverallImage(painting).sizes.medium.dimensions.height
-      : 1
+    const ratio = getRatio(painting);
 
     return (
       <group>
@@ -40,9 +36,9 @@ export const Frames = ({
           date={getOverallImage(painting).metadata.date}
           owner={painting.repository}
           ratio={ratio}
-          focusedPainting={focusedPainting}
-          setFocusedPainting={setFocusedPainting}
           inventoryNumber={painting.inventoryNumber}
+          painting={painting}
+          paintings={paintings}
         />
       </group>
     )
