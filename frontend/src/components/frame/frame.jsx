@@ -66,25 +66,27 @@ export const Frame = ({
     const positionZ = i * 0.4 + 1;
 
     return (
-      <mesh
-        key={`related-${painting.objectId}${i}`}
-        ref={smallImageFrame}
-        position={[0, 1, positionZ]}
-        rotation={[4.9, 0, 0]}
-      >
-        <A11y
-          role="link"
-          description={title}
-          href={getLinkToArchive(painting.inventoryNumber)}
-          actionCall={() => openArchive(painting.inventoryNumber)}
+      <group>
+        <mesh
+          key={`related-${painting.objectId}${i}`}
+          ref={smallImageFrame}
+          position={[0, 1, positionZ]}
+          rotation={[4.9, 0, 0]}
         >
-          <Image
-            ref={smallImage}
-            scale={[itemWidth * 0.3, itemHeight * 0.3, 1]}
-            url={useProxy(getOverallImage(painting).sizes.medium?.src)}
-          />
-        </A11y>
-      </mesh>
+          <A11y
+            role="link"
+            description={title}
+            href={getLinkToArchive(painting.inventoryNumber)}
+            actionCall={() => openArchive(painting.inventoryNumber)}
+          >
+            <Image
+              ref={smallImage}
+              scale={[itemWidth * 0.3, itemHeight * 0.3, 1]}
+              url={useProxy(getOverallImage(painting).sizes.medium?.src)}
+            />
+          </A11y>
+        </mesh>
+      </group>
     )
   })
 
@@ -144,6 +146,20 @@ export const Frame = ({
           </A11y>
         </mesh>
         <group>
+        {relatedPaintingsList.length &&
+          <mesh
+            position={[0, 1, 0.7]}
+            rotation={[5, 0, 0]}
+          >
+            <Text
+              maxWidth={0.8}
+              anchorX="center"
+              anchorY="middle"
+              fontSize={0.03}
+            >
+              Verwandte Werke
+            </Text>
+          </mesh>}
           {relatedPaintingsList}
         </group>
       </group>
