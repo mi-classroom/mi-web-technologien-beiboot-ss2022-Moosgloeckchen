@@ -17,13 +17,13 @@ export const Frames = ({
 }) => {
   const getPaintings = group.map((painting, i) => {
     const positionZ = (painting.sortingInfo.year - 1525) * 1.8;
-    const positionX = i * 2.1;
+    const positionX = i * 4;
 
     const ratio = getRatio(painting);
 
     return (
       <group>
-        <Year position={[-2, 0, positionZ]} year={painting.sortingInfo.year} positionZ={positionZ} />
+        <Year position={[-3, 0, positionZ]} year={painting.sortingInfo.year} positionZ={positionZ} />
         <Frame
           key={i}
           index={i}
