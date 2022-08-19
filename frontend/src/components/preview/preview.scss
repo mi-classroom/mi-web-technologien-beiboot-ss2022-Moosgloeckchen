@@ -1,0 +1,19 @@
+.Preview {
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    width: 6rem;
+    height: 8rem;
+    display: flex;
+    z-index: 100;
+}
+  
+.Preview-image {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+.Preview-image img {
+    width: 6rem;
+}

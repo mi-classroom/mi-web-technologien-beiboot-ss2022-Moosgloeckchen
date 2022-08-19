@@ -1,8 +1,9 @@
+import { A11y } from "@react-three/a11y";
 import { Image, Text } from "@react-three/drei";
 import React, { useRef } from "react";
-import * as THREE from 'three'
-import { getOverallImage, getRatio, openArchive } from "../../helpers/utils.helper";
+import { getLinkToArchive, getOverallImage, getRatio, openArchive } from "../../helpers/utils.helper";
 import { useProxy } from "../../hooks/useProxy";
+
 
 /**
  * takes dimensions
@@ -22,6 +23,7 @@ export const Frame = ({
   inventoryNumber,
   painting,
   paintings,
+  setPreviewUrl,
   ...props
 }) => {
 
@@ -69,20 +71,31 @@ export const Frame = ({
         ref={smallImageFrame}
         position={[0, 1, positionZ]}
         rotation={[4.9, 0, 0]}
-        onClick={(e) => {
-          if (e.shiftKey) {
-            openArchive(painting.inventoryNumber);
-          }
-        }}
       >
-        <Image
-          ref={smallImage}
-          scale={[itemWidth * 0.3, itemHeight * 0.3, 1]}
-          url={useProxy(getOverallImage(painting).sizes.medium?.src)}
-        />
+        <A11y
+          role="link"
+          description={title}
+          href={getLinkToArchive(painting.inventoryNumber)}
+          actionCall={() => openArchive(painting.inventoryNumber)}
+        >
+          <Image
+            ref={smallImage}
+            scale={[itemWidth * 0.3, itemHeight * 0.3, 1]}
+            url={useProxy(getOverallImage(painting).sizes.medium?.src)}
+          />
+        </A11y>
       </mesh>
     )
   })
+
+  const handleOnFocusLink = (inventoryNumber) => {
+    const paintingUrl = paintings.find(painting => {
+      if (painting.inventoryNumber === inventoryNumber) {
+        return painting;
+      }
+    })
+    setPreviewUrl(useProxy(getOverallImage(paintingUrl).sizes.medium?.src))
+  }
 
   return (
     <group>
@@ -96,31 +109,39 @@ export const Frame = ({
           <boxGeometry />
           <meshBasicMaterial />
         </mesh>
-        <Image
-          ref={image}
-          position={[0, 2, 0.3]}
-          scale={[width, paintingHeight, 1]}
-          url={url}
-        />
+        <A11y
+          role="content"
+          description={title}
+          tabIndex={0}
+        >
+          <Image
+            ref={image}
+            position={[0, 2, 0.3]}
+            scale={[width, paintingHeight, 1]}
+            url={url}
+          />
+        </A11y>
         <mesh
           ref={text}
           position={[0, 1, 0.5]}
           rotation={[5, 0, 0]}
-          onClick={(e) => {
-            if (e.shiftKey) {
-              openArchive(inventoryNumber);
-            }
-          }}
         >
-          <Text
-            maxWidth={0.8}
-            anchorX="center"
-            anchorY="middle"
-            fontSize={0.03}
+          <A11y
+            role="link"
+            description={descriptionString}
+            href={getLinkToArchive(inventoryNumber)}
+            actionCall={() => openArchive(inventoryNumber)}
+            focusCall={() => handleOnFocusLink(inventoryNumber)}
           >
-            {descriptionString}
-          </Text>
-
+            <Text
+              maxWidth={0.8}
+              anchorX="center"
+              anchorY="middle"
+              fontSize={0.03}
+            >
+              {descriptionString}
+            </Text>
+          </A11y>
         </mesh>
         <group>
           {relatedPaintingsList}

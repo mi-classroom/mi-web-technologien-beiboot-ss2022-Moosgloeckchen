@@ -8,9 +8,13 @@ import { Floor } from './components/floor/floor';
 import { PointerLockControls } from '@react-three/drei';
 import { getData } from './helpers/utils.helper';
 import { UI } from './components/ui/ui';
+import { A11yAnnouncer } from '@react-three/a11y';
+import { Legend } from './components/legend/legend';
+import { Preview } from './components/preview/preview';
 
 const App = () => {
   const [bestOf, setpaintingsBestOf] = useState(null)
+  const [previewUrl, setPreviewUrl] = useState(null)
 
   useEffect(() => {
     getData(setpaintingsBestOf);
@@ -38,9 +42,12 @@ const App = () => {
     * adds frames, floor and controller
     * adds PinterLockControls for camera rotation
     */
+
   return (
     <React.Fragment>
       <UI />
+      <Legend />
+      <Preview previewUrl={previewUrl}/>
       <Canvas shadows
         camera={{ fov: (65) }} 
         style={{
@@ -57,6 +64,7 @@ const App = () => {
                 key={year+i}
                 paintings={paintings}
                 group={group}
+                setPreviewUrl={setPreviewUrl}
               />
             ))}
             <Floor />
@@ -65,6 +73,7 @@ const App = () => {
         </Physics>
         <PointerLockControls />
       </Canvas>
+      <A11yAnnouncer />
     </React.Fragment>
   )
 }

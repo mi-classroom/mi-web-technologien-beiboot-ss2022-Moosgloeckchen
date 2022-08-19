@@ -13,7 +13,8 @@ import { Year } from "../year/year";
  */
 export const Frames = ({
   group,
-  paintings
+  paintings,
+  setPreviewUrl
 }) => {
   const getPaintings = group.map((painting, i) => {
     const positionZ = (painting.sortingInfo.year - 1525) * 1.8;
@@ -39,6 +40,7 @@ export const Frames = ({
           inventoryNumber={painting.inventoryNumber}
           painting={painting}
           paintings={paintings}
+          setPreviewUrl={setPreviewUrl}
         />
       </group>
     )
