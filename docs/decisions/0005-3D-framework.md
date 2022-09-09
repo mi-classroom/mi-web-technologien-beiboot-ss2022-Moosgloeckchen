@@ -1,72 +1,40 @@
 # Three.js as 3D Framework
 
-* Status: accepted<!-- optional -->
-* Workload: 1 <!-- optional -->
+* Status: accepted <!-- optional -->
+* Workload: 2 <!-- optional -->
 * Decider: [Linnéa Doberstein](https://github.com/Moosgloeckchen)
-* Issue: [?](https://github.com/mi-classroom/mi-web-technologien-beiboot-ss2022-Moosgloeckchen/issues/16) <!-- optional -->
-* Date: [YYYY-MM-DD when the decision was last updated] <!-- optional -->
+* Issue: [16](https://github.com/mi-classroom/mi-web-technologien-beiboot-ss2022-Moosgloeckchen/issues/16) <!-- optional -->
+* Date: [2022-09-09] <!-- optional -->
 
 ## Context and Problem Statement
 
-In order to show relations of the paintings of Lukas Cranach, a three dimensional view is proposed. 
-
-## Decision Drivers <!-- optional -->
-
-* [driver 1, e.g., a force, facing concern, …]
-* [driver 2, e.g., a force, facing concern, …]
-* … <!-- numbers of drivers can vary -->
+In order to show relations of the paintings of Lukas Cranach, a three dimensional view is proposed. The focus lies on plain WebGl and the WebGl based library **Three.js**.
 
 ## Considered Options
 
-* [option 1]
-* [option 2]
-* [option 3]
-* … <!-- numbers of options can vary -->
+* WebGl
+* Three.js
 
 ## Decision Outcome
 
-Chosen option: "[option 1]", because [justification. e.g., only option, which meets k.o. criterion decision driver | which resolves force force | … | comes out best (see below)].
-
+As plain WebGl would require a very low level implementation it might be more time consuming for both developer and reviewer. 
+Therefore the decision outcome is the library three.js.
 ### Positive Consequences <!-- optional -->
 
-* [e.g., improvement of quality attribute satisfaction, follow-up decisions required, …]
-* …
+* High-Level abstractions
+* React Three Fiber can be used to build the scene with re-usable, self-contained components. React Three Fiber has no limitations to three.js
+* React Three Drei with useful helpers and fully functional abstractions can be used on top on React Three Fiber. This can simplify for example the implementation of Text elements.
+* React Three Cannon can be used for a simpler implementation of controls
 
 ### Negative Consequences <!-- optional -->
 
-* [e.g., compromising quality attribute, follow-up decisions required, …]
-* …
-
-## Pros and Cons of the Options <!-- optional -->
-
-### [option 1]
-
-[example | description | pointer to more information | …] <!-- optional -->
-
-* Good, because [argument a]
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
-
-### [option 2]
-
-[example | description | pointer to more information | …] <!-- optional -->
-
-* Good, because [argument a]
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
-
-### [option 3]
-
-[example | description | pointer to more information | …] <!-- optional -->
-
-* Good, because [argument a]
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
+* For the renderer, the documentation is substatially smaller than the documentation of three.js. The basics are covered, but specific components might be harder to implement.
+* As Fiber, Drei and Cannon are React specific it would be hard to migrate to another frontend framework.
 
 ## Links <!-- optional -->
 
-* [Link type] [Link to ADR] <!-- example: Refined by [ADR-0005](0005-example.md) -->
-* … <!-- numbers of links can vary -->
+* [WebGl](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API?retiredLocale=de)
+* [Three.js](https://threejs.org/)
+* [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction)
+* [React Three Drei](https://www.npmjs.com/package/@react-three/drei)
+* [React Three Cannon](https://www.npmjs.com/package/@react-three/cannon)

@@ -33,3 +33,6 @@ Interested in decisions made along the way? Have a look at the [Architectural De
 
 ## Process documentations
 * [Github Workflow](./docs/review-process.md)
+
+## Notes
+* This implementation is a prototype and should therefore be seen as a one.
