@@ -33,7 +33,7 @@ const App = () => {
       groups[painting.sortingInfo.year] = group;
       return groups;
     }, {});
-
+  
   /**
     * creates Canvas to define three.js (fiber) scene
     * colors background
@@ -47,7 +47,9 @@ const App = () => {
     <React.Fragment>
       <UI />
       <Legend />
-      <Preview previewUrl={previewUrl}/>
+      {previewUrl &&
+        <Preview previewUrl={previewUrl} setPreviewUrl={setPreviewUrl}/>
+      }
       <Canvas shadows
         camera={{ fov: (65) }} 
         style={{
