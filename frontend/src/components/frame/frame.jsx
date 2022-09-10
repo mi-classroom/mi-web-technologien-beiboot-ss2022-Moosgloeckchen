@@ -75,9 +75,10 @@ export const Frame = ({
         >
           <A11y
             role="link"
-            description={title}
+            description={`Verwandtes Werk zu ${title}: ${painting.metadata.title}`}
             href={getLinkToArchive(painting.inventoryNumber)}
             actionCall={() => openArchive(painting.inventoryNumber)}
+            focusCall={() => handleOnFocusLink(painting.inventoryNumber)}
           >
             <Image
               ref={smallImage}

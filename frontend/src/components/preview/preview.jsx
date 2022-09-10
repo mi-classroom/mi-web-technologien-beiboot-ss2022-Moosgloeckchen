@@ -14,7 +14,7 @@ export const Preview = ({
   /**
    * remove preview on body click
    */
-    document.body.addEventListener('click', (e) => {
+  document.body.addEventListener('click', (e) => {
     setPreviewUrl(null)
   })
 

@@ -1,4 +1,4 @@
-# Add-on: Ally
+# Add-on: A11y
 
 * Status: accepted
 * Workload: 1 <!-- optional -->
@@ -25,7 +25,7 @@ As the last Issue was left wide open, the developers were free to get inspired b
 ### Positive Consequences <!-- optional -->
 
 * expand the experience to people with limitations
-* React Three Ally can be used
+* React Three A11y can be used
 
 ### Negative Consequences <!-- optional -->
 
@@ -34,4 +34,4 @@ As the last Issue was left wide open, the developers were free to get inspired b
 ## Links <!-- optional -->
 
 * [Workshop on Web Accessibility](https://github.com/Moosgloeckchen/wt-workshop-a11y)
-* [React Three Ally](https://github.com/pmndrs/react-three-a11y)
+* [React Three A11y](https://github.com/pmndrs/react-three-a11y)
