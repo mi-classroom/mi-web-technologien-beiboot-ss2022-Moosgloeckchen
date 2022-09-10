@@ -1,0 +1,19 @@
+.UI {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    z-index: 100;
+}
+  
+
+.Crosshair {
+    height: 5px;
+    width: 5px;
+    margin: auto;
+    background-color: yellow;
+    border-radius: 50%;
+    border: 0.5px solid black;
+}
