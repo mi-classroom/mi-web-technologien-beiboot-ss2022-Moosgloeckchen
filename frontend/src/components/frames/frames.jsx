@@ -23,8 +23,13 @@ export const Frames = ({
     const ratio = getRatio(painting);
 
     return (
-      <group>
-        <Year position={[-3, 0, positionZ]} year={painting.sortingInfo.year} positionZ={positionZ} />
+      <group key={`paintings-${positionZ}-${positionX}`}>
+        <Year
+          key={`year-${i}`}
+          position={[-3, 0, positionZ]}
+          year={painting.sortingInfo.year}
+          positionZ={positionZ}
+        />
         <Frame
           key={i}
           index={i}

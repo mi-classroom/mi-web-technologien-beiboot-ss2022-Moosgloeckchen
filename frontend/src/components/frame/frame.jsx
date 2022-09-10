@@ -66,9 +66,8 @@ export const Frame = ({
     const positionZ = i * 0.4 + 1;
 
     return (
-      <group>
+      <group key={`relatedPaintingsList-${positionZ}`}>
         <mesh
-          key={`related-${painting.objectId}${i}`}
           ref={smallImageFrame}
           position={[0, 1, positionZ]}
           rotation={[4.9, 0, 0]}
@@ -104,7 +103,6 @@ export const Frame = ({
     <group>
       <group {...props}>
         <mesh
-          key={sortingNumber}
           ref={frame}
           scale={[width, paintingHeight, 0.03]}
           position={[0, 2, 0.28]}
