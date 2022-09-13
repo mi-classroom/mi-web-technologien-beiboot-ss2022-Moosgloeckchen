@@ -17,8 +17,8 @@ export const UI = () => {
   });
 
   return (
-    <div className='UI'>
-      <div className='Crosshair' id='crosshair' />
+    <div className='UI' id='UI'>
+      <div className='Crosshair'/>
       <Legend />
     </div>
   );

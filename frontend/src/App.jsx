@@ -50,7 +50,6 @@ const App = () => {
   return (
     <React.Fragment>
       <UI />
-      <Legend />
       {previewUrl &&
         <Preview previewUrl={previewUrl} setPreviewUrl={setPreviewUrl} />
       }
