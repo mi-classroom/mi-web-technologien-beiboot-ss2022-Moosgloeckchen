@@ -7,8 +7,13 @@ import { useProxy } from '../../hooks/useProxy';
 
 /**
  * takes dimensions
+ * creates refs
+ * creates referenced paintings display (relatedPaintings) -> searches for referenced paintings and creates images
+ * handles links on focus
  * creates box for image (backside of an image is transparent)
  * creates image with description text
+ * adds existing references
+ * builds each element inside an A11y wrapper
  */
 export const Frame = ({
   url,

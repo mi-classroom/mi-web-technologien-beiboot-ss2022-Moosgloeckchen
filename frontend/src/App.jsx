@@ -36,12 +36,15 @@ const App = () => {
     }, {});
 
   /**
+    * adds UI Elements
+    * adds tab link preview
     * creates Canvas to define three.js (fiber) scene
     * colors background
-    * adds lighting for painting display
+    * adds lighting
     * adds physics to place physics related ojects
     * adds frames, floor and controller
     * adds PinterLockControls for camera rotation
+    * adds AllyAnnouncer
     */
 
   return (
