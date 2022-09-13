@@ -13,14 +13,14 @@ import { Legend } from './components/legend/legend';
 import { Preview } from './components/preview/preview';
 
 const App = () => {
-  const [bestOf, setpaintingsBestOf] = useState(null)
-  const [previewUrl, setPreviewUrl] = useState(null)
+  const [paintingsBestOf, setPaintingsBestOf] = useState(null);
+  const [previewUrl, setPreviewUrl] = useState(null);
 
   useEffect(() => {
-    getData(setpaintingsBestOf);
-  }, [])
+    getData(setPaintingsBestOf);
+  }, []);
 
-  const paintings = bestOf ? bestOf : [];
+  const paintings = paintingsBestOf ? paintingsBestOf : [];
   mergeSort(paintings);
 
   /**
@@ -33,7 +33,7 @@ const App = () => {
       groups[painting.sortingInfo.year] = group;
       return groups;
     }, {});
-  
+
   /**
     * creates Canvas to define three.js (fiber) scene
     * colors background
@@ -48,10 +48,10 @@ const App = () => {
       <UI />
       <Legend />
       {previewUrl &&
-        <Preview previewUrl={previewUrl} setPreviewUrl={setPreviewUrl}/>
+        <Preview previewUrl={previewUrl} setPreviewUrl={setPreviewUrl} />
       }
       <Canvas shadows
-        camera={{ fov: (65) }} 
+        camera={{ fov: (65) }}
         style={{
           width: '100vw',
           height: '100vh',
@@ -63,7 +63,7 @@ const App = () => {
           <group position={[0, -0.9, -13]}>
             {Object.entries(groupPaintings(paintings)).map(([year, group, i]) => (
               <Frames
-                key={year+i}
+                key={year + i}
                 paintings={paintings}
                 group={group}
                 setPreviewUrl={setPreviewUrl}
@@ -77,7 +77,7 @@ const App = () => {
       </Canvas>
       <A11yAnnouncer />
     </React.Fragment>
-  )
-}
+  );
+};
 
 export default App;

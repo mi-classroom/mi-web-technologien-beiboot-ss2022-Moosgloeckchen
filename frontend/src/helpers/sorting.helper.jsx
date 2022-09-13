@@ -13,14 +13,14 @@ export const mergeSort = (bestOf) => {
     for (var i = 0; i < mid; i++) {
         arrayLeft[i] = bestOf[i];
     }
-    for (var i = mid; i < bestOf?.length; i++) {
-        arrayRight[i - mid] = bestOf[i];
+    for (var j = mid; j < bestOf?.length; j++) {
+        arrayRight[j - mid] = bestOf[j];
     }
     mergeSort(arrayLeft, mid);
     mergeSort(arrayRight, bestOf?.length - mid);
 
     merge(bestOf, arrayLeft, arrayRight, mid, bestOf?.length - mid);
-}
+};
 
 export const merge = (bestOf, l, r, left, right) => {
     var i = 0, j = 0, k = 0;
@@ -38,4 +38,4 @@ export const merge = (bestOf, l, r, left, right) => {
     while (j < right) {
         bestOf[k++] = r[j++];
     }
-}
+};

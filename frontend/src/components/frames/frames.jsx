@@ -1,8 +1,8 @@
-import React from "react";
-import { getOverallImage, getRatio } from "../../helpers/utils.helper";
-import { useProxy } from "../../hooks/useProxy";
-import { Frame } from "../frame/frame";
-import { Year } from "../year/year";
+import React from 'react';
+import { getOverallImage, getRatio } from '../../helpers/utils.helper';
+import { useProxy } from '../../hooks/useProxy';
+import { Frame } from '../frame/frame';
+import { Year } from '../year/year';
 
 /**
  * takes groupes
@@ -33,7 +33,6 @@ export const Frames = ({
         <Frame
           key={i}
           index={i}
-          id={getOverallImage(painting).id}
           url={useProxy(getOverallImage(painting).sizes.medium?.src)}
           position={[positionX, 0, positionZ]}
           maxDimensions={painting.images.overall.infos.maxDimensions}
@@ -48,12 +47,12 @@ export const Frames = ({
           setPreviewUrl={setPreviewUrl}
         />
       </group>
-    )
-  })
+    );
+  });
 
   return (
     <group>
       {getPaintings}
     </group>
-  )
-}
+  );
+};

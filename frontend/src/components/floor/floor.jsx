@@ -1,3 +1,6 @@
+import { usePlane } from '@react-three/cannon';
+import { MeshReflectorMaterial } from '@react-three/drei';
+import React from 'react';
 import { usePlane } from "@react-three/cannon";
 import { MeshReflectorMaterial } from "@react-three/drei";
 import React from "react";
@@ -22,5 +25,5 @@ export const Floor = () => {
         metalness={0.5}
       />
     </mesh>
-  )
-}
+  );
+};

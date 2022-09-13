@@ -1,11 +1,13 @@
+import React, { useRef } from 'react';
+import { Text } from '@react-three/drei';
 import React, { useRef } from "react";
 import { Text } from "@react-three/drei"
 
 /**
  * creates box which displays the year -> timeline
  */
-export const Year = ({year, positionZ, ...props}) => {
-  const mesh = useRef()
+export const Year = ({ year, positionZ, ...props }) => {
+  const mesh = useRef();
 
   return (
     <group>
@@ -23,5 +25,5 @@ export const Year = ({year, positionZ, ...props}) => {
         {year}
       </Text>
     </group>
-  )
-}
+  );
+};
