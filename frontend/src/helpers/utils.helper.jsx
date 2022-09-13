@@ -39,5 +39,10 @@ export const getRatio = (painting) => {
  */
 
 export const openArchive = (paintingInventoryNumber) => {
+  document.getElementById('preview-imageTag')?.removeAttribute('src'); 
   window.open(`https://lucascranach.org/de/${paintingInventoryNumber}/`, '_blank');
+}
+
+export const getLinkToArchive = (paintingInventoryNumber) => {
+  return `https://lucascranach.org/de/${paintingInventoryNumber}/`;
 }
