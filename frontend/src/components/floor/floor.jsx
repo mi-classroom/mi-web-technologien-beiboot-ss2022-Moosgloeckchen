@@ -1,9 +1,7 @@
 import { usePlane } from '@react-three/cannon';
 import { MeshReflectorMaterial } from '@react-three/drei';
 import React from 'react';
-import { usePlane } from "@react-three/cannon";
-import { MeshReflectorMaterial } from "@react-three/drei";
-import React from "react";
+import variables from '../../assets/styles/scss/abstracts/variables.module.scss';
 
 /**
  * defines the Floor 
@@ -21,7 +19,7 @@ export const Floor = () => {
         mixStrength={40}
         roughness={1}
         depthScale={1.2}
-        color="#101010"
+        color={variables.darkest}
         metalness={0.5}
       />
     </mesh>

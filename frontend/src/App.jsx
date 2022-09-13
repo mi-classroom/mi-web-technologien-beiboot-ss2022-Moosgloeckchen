@@ -11,6 +11,7 @@ import { UI } from './components/ui/ui';
 import { A11yAnnouncer } from '@react-three/a11y';
 import { Legend } from './components/legend/legend';
 import { Preview } from './components/preview/preview';
+import variables from './assets/styles/scss/abstracts/variables.module.scss';
 
 const App = () => {
   const [paintingsBestOf, setPaintingsBestOf] = useState(null);
@@ -57,7 +58,7 @@ const App = () => {
           height: '100vh',
         }}
       >
-        <color attach='background' args={['darkgrey']} />
+        <color attach='background' args={[variables.light]} />
         <directionalLight position={[0, 8, 5]} castShadow intensity={1} shadow-camera-far={70} />
         <Physics>
           <group position={[0, -0.9, -13]}>

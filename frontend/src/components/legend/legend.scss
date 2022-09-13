@@ -1,3 +1,5 @@
+@import '../../assets/styles/index.scss';
+
 .Legend {
     position: absolute;
     bottom: 0;
@@ -14,8 +16,8 @@
     height: 100%;
     margin: auto;
     padding: 0.5rem;
-    color: white;
-    background-color: rgb(36, 36, 37);
+    color: $lighter;
+    background-color: $darker;
     font-size: 10px;
-    font-family:'IBMPlexSans, Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: $font-sans-serif;
 }
