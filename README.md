@@ -32,7 +32,10 @@ To start the Project Docker Compose must be installed on the device. After that,
 Interested in decisions made along the way? Have a look at the [Architectural Decision Records (ADR's)](./docs/decisions/README.md).
 
 ## Process documentations
+* [Kanban Board](https://github.com/mi-classroom/mi-web-technologien-beiboot-ss2022-Moosgloeckchen/projects/1)
 * [Github Workflow](./docs/review-process.md)
+* [Timetracking](https://github.com/mi-classroom/mi-web-technologien-beiboot-ss2022-Moosgloeckchen/issues/7)
+* [Challenges](./docs/challenges.md)
 
 ## Notes
 This implementation is a prototype.
