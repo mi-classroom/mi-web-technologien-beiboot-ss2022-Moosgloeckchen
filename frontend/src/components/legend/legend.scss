@@ -4,10 +4,10 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 10rem;
-    height: 17rem;
+    width: 15rem;
+    height: 20rem;
     display: flex;
-    z-index: 100;
+    z-index: $level-overlay;
 }
   
 
@@ -18,6 +18,6 @@
     padding: 0.5rem;
     color: $lighter;
     background-color: $darker;
-    font-size: 10px;
+    font-size: 12px;
     font-family: $font-sans-serif;
 }

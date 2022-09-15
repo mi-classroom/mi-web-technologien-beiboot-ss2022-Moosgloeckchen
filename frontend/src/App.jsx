@@ -9,7 +9,6 @@ import { PointerLockControls } from '@react-three/drei';
 import { getData } from './helpers/utils.helper';
 import { UI } from './components/ui/ui';
 import { A11yAnnouncer } from '@react-three/a11y';
-import { Legend } from './components/legend/legend';
 import { Preview } from './components/preview/preview';
 import variables from './assets/styles/scss/abstracts/variables.module.scss';
 
@@ -46,7 +45,6 @@ const App = () => {
     * adds PinterLockControls for camera rotation
     * adds AllyAnnouncer
     */
-
   return (
     <React.Fragment>
       <UI />
