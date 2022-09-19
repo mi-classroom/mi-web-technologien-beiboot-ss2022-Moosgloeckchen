@@ -1,11 +1,12 @@
-import React, { useRef } from "react";
-import { Text } from "@react-three/drei"
+import React, { useRef } from 'react';
+import { Text } from '@react-three/drei';
+import variables from '../../assets/styles/scss/abstracts/variables.module.scss';
 
 /**
  * creates box which displays the year -> timeline
  */
-export const Year = ({year, positionZ, ...props}) => {
-  const mesh = useRef()
+export const Year = ({ year, positionZ, ...props }) => {
+  const mesh = useRef();
 
   return (
     <group>
@@ -14,7 +15,7 @@ export const Year = ({year, positionZ, ...props}) => {
         ref={mesh}
         scale={1}>
         <boxGeometry args={[1, 1, 0.3]} />
-        <meshStandardMaterial color={'orange'} />
+        <meshStandardMaterial color={variables.accentDark} />
       </mesh>
       <Text maxWidth={1.8} anchorX="center" anchorY="middle" position={[-3, 0.52, positionZ]} fontSize={0.2} rotation={[4.7, 0, 0]}>
         {year}
@@ -23,5 +24,5 @@ export const Year = ({year, positionZ, ...props}) => {
         {year}
       </Text>
     </group>
-  )
-}
+  );
+};

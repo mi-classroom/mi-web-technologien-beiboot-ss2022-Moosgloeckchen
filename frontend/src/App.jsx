@@ -9,18 +9,18 @@ import { PointerLockControls } from '@react-three/drei';
 import { getData } from './helpers/utils.helper';
 import { UI } from './components/ui/ui';
 import { A11yAnnouncer } from '@react-three/a11y';
-import { Legend } from './components/legend/legend';
 import { Preview } from './components/preview/preview';
+import variables from './assets/styles/scss/abstracts/variables.module.scss';
 
 const App = () => {
-  const [bestOf, setpaintingsBestOf] = useState(null)
-  const [previewUrl, setPreviewUrl] = useState(null)
+  const [paintingsBestOf, setPaintingsBestOf] = useState(null);
+  const [previewUrl, setPreviewUrl] = useState(null);
 
   useEffect(() => {
-    getData(setpaintingsBestOf);
-  }, [])
+    getData(setPaintingsBestOf);
+  }, []);
 
-  const paintings = bestOf ? bestOf : [];
+  const paintings = paintingsBestOf ? paintingsBestOf : [];
   mergeSort(paintings);
 
   /**
@@ -33,37 +33,38 @@ const App = () => {
       groups[painting.sortingInfo.year] = group;
       return groups;
     }, {});
-  
+
   /**
+    * adds UI Elements
+    * adds tab link preview
     * creates Canvas to define three.js (fiber) scene
     * colors background
-    * adds lighting for painting display
+    * adds lighting
     * adds physics to place physics related ojects
     * adds frames, floor and controller
     * adds PinterLockControls for camera rotation
+    * adds AllyAnnouncer
     */
-
   return (
     <React.Fragment>
       <UI />
-      <Legend />
       {previewUrl &&
-        <Preview previewUrl={previewUrl} setPreviewUrl={setPreviewUrl}/>
+        <Preview previewUrl={previewUrl} setPreviewUrl={setPreviewUrl} />
       }
       <Canvas shadows
-        camera={{ fov: (65) }} 
+        camera={{ fov: (65) }}
         style={{
           width: '100vw',
           height: '100vh',
         }}
       >
-        <color attach='background' args={['darkgrey']} />
+        <color attach='background' args={[variables.light]} />
         <directionalLight position={[0, 8, 5]} castShadow intensity={1} shadow-camera-far={70} />
         <Physics>
           <group position={[0, -0.9, -13]}>
             {Object.entries(groupPaintings(paintings)).map(([year, group, i]) => (
               <Frames
-                key={year+i}
+                key={year + i}
                 paintings={paintings}
                 group={group}
                 setPreviewUrl={setPreviewUrl}
@@ -77,7 +78,7 @@ const App = () => {
       </Canvas>
       <A11yAnnouncer />
     </React.Fragment>
-  )
-}
+  );
+};
 
 export default App;

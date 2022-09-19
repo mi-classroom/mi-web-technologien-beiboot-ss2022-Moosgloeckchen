@@ -21,6 +21,13 @@ $darken-medium: rgba(0, 0, 0, 0.1);
 $darken-strong: rgba(0, 0, 0, 0.6);
 $darken-strongest: rgba(0, 0, 0, 0.8);
 
+:export {
+  light: $light;
+  darker: $darker;
+  darkest: $darkest;
+  accentDark: $accent-dark;
+}
+
 
 /* Viewports
 ---------------------------------------------------------------------------- */

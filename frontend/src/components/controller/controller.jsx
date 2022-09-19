@@ -17,12 +17,12 @@ const keyboardKeys = {
 /** 
  * creates a sphere with mass and position
  * ties mesh to the reference so that it will be affected by gravity
- * use useControls to identify movement
- * access camera
+ * uses useControls to identify movement
+ * accesses camera
  * useFrame -> calls you back every frame (useful for updating controls)
- * use the api to interact with the object (apply positions, rotations, velocities,...)
+ * uses the api to interact with the object (apply positions, rotations, velocities,...)
  * calculates direction and moves the camera and therefore the viewport to the identified position
- */ 
+ */
 export const Controller = () => {
   const [ref, api] = useSphere(() => ({
     mass: 1,
@@ -31,15 +31,15 @@ export const Controller = () => {
 
   const { moveForward, moveBackward, moveLeft, moveRight } = useControls(keyboardKeys);
   const { camera } = useThree();
-  
+
   useFrame(() => {
     ref.current.getWorldPosition(camera.position);
 
     const vectorX = new THREE.Vector3()
-      .set(Number(moveLeft) - Number(moveRight), 0, 0)
+      .set(Number(moveLeft) - Number(moveRight), 0, 0);
 
     const vectorZ = new THREE.Vector3()
-      .set(0, 0, Number(moveBackward) - Number(moveForward))
+      .set(0, 0, Number(moveBackward) - Number(moveForward));
 
     const direction = new THREE.Vector3()
       .subVectors(vectorZ, vectorX)

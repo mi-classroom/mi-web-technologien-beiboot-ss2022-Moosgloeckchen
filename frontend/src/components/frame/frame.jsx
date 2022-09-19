@@ -1,14 +1,19 @@
-import { A11y } from "@react-three/a11y";
-import { Image, Text } from "@react-three/drei";
-import React, { useRef } from "react";
-import { getLinkToArchive, getOverallImage, getRatio, openArchive } from "../../helpers/utils.helper";
-import { useProxy } from "../../hooks/useProxy";
+import { A11y } from '@react-three/a11y';
+import { Image, Text } from '@react-three/drei';
+import React, { useRef } from 'react';
+import { getLinkToArchive, getOverallImage, getRatio, openArchive } from '../../helpers/utils.helper';
+import { useProxy } from '../../hooks/useProxy';
 
 
 /**
  * takes dimensions
+ * creates refs
+ * creates referenced paintings display (relatedPaintings) -> searches for referenced paintings and creates images
+ * handles links on focus
  * creates box for image (backside of an image is transparent)
  * creates image with description text
+ * adds existing references
+ * builds each element inside an A11y wrapper
  */
 export const Frame = ({
   url,
@@ -18,8 +23,6 @@ export const Frame = ({
   date,
   owner,
   ratio,
-  sortingNumber,
-  id,
   inventoryNumber,
   painting,
   paintings,
@@ -27,11 +30,11 @@ export const Frame = ({
   ...props
 }) => {
 
-  const image = useRef()
-  const frame = useRef()
-  const text = useRef()
-  const smallImage = useRef()
-  const smallImageFrame = useRef()
+  const image = useRef();
+  const frame = useRef();
+  const text = useRef();
+  const smallImage = useRef();
+  const smallImageFrame = useRef();
 
   const descriptionString = `Titel: ${title} \nKünstler: ${artist} \nDatum: ${date} \nBesitzer: ${owner}`;
   const paintingHeight = (maxDimensions.height / 500) / 10;
@@ -50,11 +53,11 @@ export const Frame = ({
         }
         return null;
       }
-    })
+    });
     if (relatedPainting) {
       relatedPaintings.push(relatedPainting);
     }
-  })
+  });
 
   /**
    * create DOM elements for all relatedPaintings
@@ -87,17 +90,17 @@ export const Frame = ({
           </A11y>
         </mesh>
       </group>
-    )
-  })
+    );
+  });
 
   const handleOnFocusLink = (inventoryNumber) => {
     const paintingUrl = paintings.find(painting => {
       if (painting.inventoryNumber === inventoryNumber) {
         return painting;
       }
-    })
-    setPreviewUrl(useProxy(getOverallImage(paintingUrl).sizes.medium?.src))
-  }
+    });
+    setPreviewUrl(useProxy(getOverallImage(paintingUrl).sizes.medium?.src));
+  };
 
   return (
     <group>
@@ -145,23 +148,23 @@ export const Frame = ({
           </A11y>
         </mesh>
         <group>
-        {relatedPaintingsList.length &&
-          <mesh
-            position={[0, 1, 0.7]}
-            rotation={[5, 0, 0]}
-          >
-            <Text
-              maxWidth={0.8}
-              anchorX="center"
-              anchorY="middle"
-              fontSize={0.03}
+          {relatedPaintingsList.length &&
+            <mesh
+              position={[0, 1, 0.7]}
+              rotation={[5, 0, 0]}
             >
-              Verwandte Werke
-            </Text>
-          </mesh>}
+              <Text
+                maxWidth={0.8}
+                anchorX="center"
+                anchorY="middle"
+                fontSize={0.03}
+              >
+                Verwandte Werke
+              </Text>
+            </mesh>}
           {relatedPaintingsList}
         </group>
       </group>
     </group>
-  )
-}
+  );
+};

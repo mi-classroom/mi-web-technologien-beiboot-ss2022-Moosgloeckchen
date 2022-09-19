@@ -5,11 +5,14 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint . --ext js,jsx",
+    "lint:fix": "eslint . --ext js,jsx --fix"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",
-    "eslint": "^8.14.0",
+    "eslint": "^8.23.0",
+    "eslint-plugin-react": "^7.31.8",
     "vite": "^2.9.5"
   },
   "dependencies": {

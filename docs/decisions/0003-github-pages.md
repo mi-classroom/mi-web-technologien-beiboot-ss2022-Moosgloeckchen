@@ -32,7 +32,7 @@ Chosen option: "GitHub Pages", because for the current specs it is sufficient.
 
 ### Negative Consequences <!-- optional -->
 
-* the developer is not able to hide the content behin a htaccess
+* the developer is not able to hide the content behind a htaccess
 
 ## Pros and Cons of the Options <!-- optional -->
 

@@ -1,6 +1,6 @@
 @import './scss/abstracts/fonts.scss';
 @import './scss/abstracts/icons.scss';
-@import './scss/abstracts/variables.scss';
+@import './scss/abstracts/variables.module.scss';
 
 * {
     box-sizing: border-box;
@@ -16,6 +16,6 @@
   }
   
   body {
-    background: #a2b9e7;
+    background: $darker;
   }
   

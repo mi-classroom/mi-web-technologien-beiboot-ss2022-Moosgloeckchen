@@ -1,3 +1,5 @@
+@import '../../assets/styles/index.scss';
+
 .UI {
     position: absolute;
     top: 0;
@@ -5,7 +7,7 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    z-index: 100;
+    z-index: $level-overlay;
 }
   
 
@@ -13,7 +15,7 @@
     height: 5px;
     width: 5px;
     margin: auto;
-    background-color: yellow;
+    background-color: $accent;
     border-radius: 50%;
-    border: 0.5px solid black;
+    border: 0.5px solid $darkest;
 }

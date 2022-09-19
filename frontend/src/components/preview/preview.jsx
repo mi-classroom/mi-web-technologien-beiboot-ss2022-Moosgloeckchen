@@ -14,9 +14,9 @@ export const Preview = ({
   /**
    * remove preview on body click
    */
-  document.body.addEventListener('click', (e) => {
-    setPreviewUrl(null)
-  })
+  document.body.addEventListener('click', () => {
+    setPreviewUrl(null);
+  });
 
   return (
     <div className='Preview'>
@@ -24,5 +24,5 @@ export const Preview = ({
         <img src={previewUrl} id='preview-imageTag'></img>
       </div>
     </div>
-  )
-}
+  );
+};
